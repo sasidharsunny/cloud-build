@@ -1,1 +1,1 @@
-this is my cloud build learning
+this is my cloud build learning and integrating with GCP
