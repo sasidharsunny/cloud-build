@@ -1,0 +1,348 @@
+# To run install: https://marketplace.visualstudio.com/items?itemName=humao.rest-client 
+
+##################
+#
+# Heartbeat
+#
+##################
+
+###
+GET https://localhost:8001/heartbeat
+
+
+##################
+#
+# API key endpoints
+#
+##################
+
+
+### Get all api keys
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/api-keys
+Authorization: 21c05051-0312-8608-4b49-4afe89236847
+
+
+### Create api key
+POST https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/api-keys
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "roles":["view-api-keys","create-sessions"]
+}
+
+
+### Get api key
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/api-keys/21c05051-0312-4b49-8608-4afe89236847
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Update api key
+PUT https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/api-keys/35ec4194-f4d2-493f-acf0-ba6ca8d7fcd2
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "roles":["view-api-keys","modify-api-keys", "create-api-keys"]
+}
+
+
+### Revoke api key
+DELETE https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/api-keys/35ec4194-f4d2-493f-acf0-ba6ca8d7fcd2
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+##################
+#
+# Organizations endpoints
+#
+##################
+
+### Get organization
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Get all organizations
+GET https://localhost:8001/orgs/
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Create organization
+POST https://localhost:8001/orgs/
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "name": "New Organization2",
+  "metadata": {
+    "industry": "Technology",
+    "region": "North America"
+  }
+}
+
+
+### Update organization
+PUT https://localhost:8001/orgs/d69787cd-7589-4280-b85a-e464a1a98a41
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "name": "New Organization2",
+  "metadata": {
+    "a":"b",
+    "industry": "Technology",
+    "region": "North America"
+  },
+  "status":"inactive"
+}
+
+
+##################
+#
+# Storage providers endpoints
+#
+##################
+
+
+### Get storage providers
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/storage-providers
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Create storage provider
+POST https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/storage-providers/
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "name":"qwe",
+  "type":"s3",
+  "config":{}
+}
+
+
+### Get storage provider
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/storage-providers/591451d6-575f-44bb-90b0-c20b00f1e681
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Update storage provider
+PUT https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/storage-providers/1c62ac44-aad6-48a0-b604-77eb2c06a5d0
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "name":"ewq",
+  "type":"local",
+  "organizationId":"00000000-0000-0000-0000-000000000000"
+}
+
+
+### Delete storage provider
+DELETE https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/storage-providers/11199cb8-ce17-4609-9891-8d981da930ef
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+##################
+#
+# ASR providers endpoints
+#
+##################
+
+
+### Get asr providers
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/asr-providers
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Create asr provider
+POST https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/asr-providers/
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "name":"qwe",
+  "type":"s3"
+}
+
+
+### Get asr provider
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/asr-providers/efa330ed-99a5-4625-974d-a4f8c2e8a2fd
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Update asr provider
+PUT https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/asr-providers/d58a4693-95a0-4bb5-9156-aad41e7ae55e
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "name":"ewq",
+  "type":"local"
+}
+
+
+### Delete asr provider
+DELETE https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/asr-providers/d58a4693-95a0-4bb5-9156-aad41e7ae55e
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+##################
+#
+# ASR profiles endpoints
+#
+##################
+
+
+### Get asr profiles
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/asr-profiles
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Create asr profile
+POST https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/asr-profiles/
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "name":"qwe",
+  "providerId":"53e4a9ed-faff-4ff6-b94c-2a9497c1bbd0"
+}
+
+
+### Get asr profile
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/asr-profiles/0973a0a7-c1f0-4c70-8c2a-3ebb3bb778ee
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Update asr profile
+PUT https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/asr-profiles/0973a0a7-c1f0-4c70-8c2a-3ebb3bb778ee
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "name":"ewq",
+  "type":"local"
+}
+
+
+### Delete asr profile
+DELETE https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/asr-profiles/c06b2d07-2167-4f06-9568-78075fd21e02
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+##################
+#
+# Audio recordings endpoints
+#
+##################
+
+
+### Get audio recording
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/audio-sessions/33cb8fed-a580-4513-ad98-fde5b24db273/recordings/11596bc4-df71-4f02-ae5c-f8687841f504
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Get all audio recordings
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/audio-sessions/33cb8fed-a580-4513-ad98-fde5b24db273/recordings
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Update audio recording
+PUT https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/audio-sessions/33cb8fed-a580-4513-ad98-fde5b24db273/recordings/11596bc4-df71-4f02-ae5c-f8687841f504
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "metadata":{
+    "a":"x"
+  }
+}
+
+
+### Delete audio recording
+DELETE https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/audio-sessions/33cb8fed-a580-4513-ad98-fde5b24db273/recordings/494abb0e-b706-4f37-95e8-3ce757217618
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+##################
+#
+# Voice transcript endpoints
+#
+##################
+
+
+### Get voice transcript
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/audio-sessions/33cb8fed-a580-4513-ad98-fde5b24db273/transcripts/25c352a1-e869-4730-a06c-d09563df21ac
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Get all voice transcripts
+GET https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/audio-sessions/33cb8fed-a580-4513-ad98-fde5b24db273/transcripts
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+### Update voice transcript
+PUT https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/audio-sessions/33cb8fed-a580-4513-ad98-fde5b24db273/transcripts/25c352a1-e869-4730-a06c-d09563df21ac
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "metadata":{
+    "a":"x"
+  }
+}
+
+
+### Delete voice transcript
+DELETE https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/audio-sessions/33cb8fed-a580-4513-ad98-fde5b24db273/transcripts/25c352a1-e869-4730-a06c-d09563df21ac
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+
+
+##################
+#
+# Create session and connect producer
+#
+##################
+
+
+### Create session
+POST https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/create-audio-session
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "asrProfileId":"0973a0a7-c1f0-4c70-8c2a-3ebb3bb778ee",
+  "metadata": {
+    "audioFormat": "PCM",
+    "sampleRate": 16000,
+    "channels": 1,
+    "incomingPhoneNumber": "+1234567890",
+    "customerId": "CUST-78910",
+  }
+}
+
+
+##################
+#
+# Join session and connect client
+#
+##################
+
+
+### Join session
+POST https://localhost:8001/orgs/123e4567-e89b-12d3-a456-426614174999/join-audio-session
+Authorization: 21c05051-0312-4b49-8608-4afe89236847
+Content-Type: application/json
+
+{
+  "audioSessionId":"864d89ac-ac40-417e-b31f-497b371dba41",
+  "streamTypes": ["raw", "sentence"],
+  "metadata": {
+    "sampleRate": 16000,
+    "channels": 1,
+    "incomingPhoneNumber": "+1234567890",
+    "customerId": "CUST-78910"
+  }
+}

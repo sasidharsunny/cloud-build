@@ -1,0 +1,25 @@
+# package directories
+node_modules
+
+# Serverless directories
+.serverless
+
+.idea
+.dynamodb
+.env
+.env.dev
+.env.staging
+.env.prod
+.env.docker
+
+# esbuild directories
+.esbuild
+lib/
+dev/.DS_Store
+.DS_Store
+
+log.txt
+
+certifcate/*
+!certifcate/dummy
+audio/*

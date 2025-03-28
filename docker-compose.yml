@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgresdb:
+    env_file: .env.docker
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=9nqK5tCOyo6XmLz9
+      - POSTGRES_DB=vtp-db
+    ports:
+      - $POSTGRES_PORT:$POSTGRES_PORT
+    volumes:
+      - db:/var/lib/postgres
+  app:
+    env_file: .env.docker
+    depends_on:
+      - postgresdb
+    build: .
+    restart: unless-stopped
+    ports:
+      - $EXPRESS_PORT:$EXPRESS_PORT
+    stdin_open: true
+    tty: true
+
+volumes:
+  db:
