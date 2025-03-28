@@ -3,24 +3,24 @@
 steps:
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '.', '-t', 'gcr.io/my-first-project-17342/my-clouddeploy-image:${COMMIT_SHA}', '-f', 'Dockerfile']
+  args: ['build', '.', '-t', 'gcr.io/silent-robot-427709-j7/my-clouddeploy-image:${COMMIT_SHA}', '-f', 'Dockerfile']
 
 
 # Push the container image
 
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/my-first-project-17342/my-clouddeploy-image:${COMMIT_SHA}']
+  args: ['push', 'gcr.io/silent-robot-427709-j7/cloud-build-testing:${COMMIT_SHA}']
 # Create release in Google Cloud Deploy
 
 
-- name: gcr.io/google.com/cloudsdktool/cloud-sdk
-  entrypoint: gcloud
-  args:
-    [
-      "deploy", "releases", "create", "rel-${SHORT_SHA}",
-      "--delivery-pipeline", "gitops",
-      "--region", "asia-east1",
-      "--annotations", "commitId=${REVISION_ID}",
-      "--images", "sanket-clouddeploy-image=gcr.io/my-first-project-17342/my-clouddeploy-image:${COMMIT_SHA}"
-    ]
+# - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+#   entrypoint: gcloud
+#   args:
+#     [
+#       "deploy", "releases", "create", "rel-${SHORT_SHA}",
+#       "--delivery-pipeline", "gitops",
+#       "--region", "asia-east1",
+#       "--annotations", "commitId=${REVISION_ID}",
+#       "--images", "sanket-clouddeploy-image=gcr.io/silent-robot-427709-j7/my-clouddeploy-image:${COMMIT_SHA}"
+#     ]
